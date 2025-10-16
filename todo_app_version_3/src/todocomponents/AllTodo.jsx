@@ -1,4 +1,5 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
 
 function AllTodo({ todoItems, handleDeleteButton }) {
   return (
@@ -18,10 +19,11 @@ function AllTodo({ todoItems, handleDeleteButton }) {
             <section className="flex-1">
               <button
                 type="button"
-                className="w-20 py-2 bg-red-600 text-white rounded"
+                className="w-20 py-2 bg-red-600 text-white rounded flex items-center justify-center"
                 onClick={() => handleDeleteButton(items.name)}
               >
                 Delete
+                <MdDelete />
               </button>
             </section>
           </div>

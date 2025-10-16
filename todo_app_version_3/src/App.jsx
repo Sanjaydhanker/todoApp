@@ -24,7 +24,10 @@ function App() {
       name: newTodoName,
       dueDate: newTodoDat,
     };
-    if (!newTodo || !newTodoDate) return; // simple validation
+    if (!newTodo || !newTodoDate)
+      return alert("Please Enter TodoName and Date");
+
+    // simple validation
     let newTodoList = [...todoItems, newTodoItems];
     setTodoItems(newTodoList);
     setNewTodoDate("");

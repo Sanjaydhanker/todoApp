@@ -1,4 +1,5 @@
 import React from "react";
+import { IoMdAddCircle } from "react-icons/io";
 
 function AddTodo({
   textInputOnChange,
@@ -29,10 +30,10 @@ function AddTodo({
       <section className="flex-1">
         <button
           type="button"
-          className="w-20 py-2  bg-green-600 text-white rounded active:bg-green-700"
+          className="w-20 py-2  bg-green-600 text-white rounded active:bg-green-700 flex items-center justify-center"
           onClick={addOnClickHandle}
         >
-          Add
+          Add <IoMdAddCircle />
         </button>
       </section>
     </div>
