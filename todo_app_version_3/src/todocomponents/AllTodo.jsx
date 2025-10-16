@@ -1,6 +1,6 @@
 import React from "react";
 
-function AllTodo({ todoItems }) {
+function AllTodo({ todoItems, handleDeleteButton }) {
   return (
     <>
       {todoItems.map((items, index) => {
@@ -19,8 +19,9 @@ function AllTodo({ todoItems }) {
               <button
                 type="button"
                 className="w-20 py-2 bg-red-600 text-white rounded"
+                onClick={() => handleDeleteButton(items.name)}
               >
-                {items.deleteBtn}
+                Delete
               </button>
             </section>
           </div>

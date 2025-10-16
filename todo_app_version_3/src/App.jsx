@@ -2,17 +2,13 @@ import { use, useState } from "react";
 import AddTodo from "./todocomponents/AddTodo";
 import AllTodo from "./todocomponents/AllTodo";
 import TodoContainer from "./todocomponents/TodoContainer";
+import WelcomeMessage from "./todocomponents/WelcomeMessage";
+import AppName from "./todocomponents/AppName";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
   const [newTodoDate, setNewTodoDate] = useState("");
-  const [todoItems, setTodoItems] = useState([
-    {
-      name: "Milk",
-      dueDate: "2025/10/12",
-      deleteBtn: "Delete",
-    },
-  ]);
+  const [todoItems, setTodoItems] = useState([]);
 
   const textInputOnChange = (e) => {
     setNewTodo(e.target.value);
@@ -27,7 +23,6 @@ function App() {
     let newTodoItems = {
       name: newTodoName,
       dueDate: newTodoDat,
-      deleteBtn: "Delete",
     };
     if (!newTodo || !newTodoDate) return; // simple validation
     let newTodoList = [...todoItems, newTodoItems];
@@ -36,9 +31,15 @@ function App() {
     setNewTodo("");
   };
 
+  const handleDeleteButton = (itemName) => {
+    let newTodoItems = todoItems.filter((item) => item.name !== itemName);
+    setTodoItems(newTodoItems);
+    console.log(itemName);
+  };
   return (
     <>
       <TodoContainer>
+        <AppName />
         <AddTodo
           textInputOnChange={textInputOnChange}
           dateInputOnChange={dateInputOnChange}
@@ -46,7 +47,11 @@ function App() {
           todo={newTodo}
           todoDate={newTodoDate}
         />
-        <AllTodo todoItems={todoItems} />
+        {todoItems.length === 0 && <WelcomeMessage />}
+        <AllTodo
+          todoItems={todoItems}
+          handleDeleteButton={handleDeleteButton}
+        />
       </TodoContainer>
     </>
   );
