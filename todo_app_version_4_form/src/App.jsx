@@ -19,7 +19,7 @@ function App() {
 
   const addOnClickHandle = (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
 
     let newTodoName = newTodo;
     let newTodoDat = newTodoDate;

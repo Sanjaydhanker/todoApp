@@ -11,7 +11,7 @@ function TodoApp() {
     },
     {
       name: "Go to College",
-      dueDate: "12/10/2025",
+      dueDate: "12/06/2025",
       deleteBtn: "Delete",
     },
     {
@@ -36,9 +36,10 @@ function TodoApp() {
 
           {todoItems.map((items) => (
             <AllTodoItems
+              key={items.name}
               todoName={items.name}
-              todoDate={todoItems.dueDate}
-              deleteButton={todoItems.deleteBtn}
+              todoDate={items.dueDate}
+              deleteButton={items.deleteBtn}
             />
           ))}
         </div>
