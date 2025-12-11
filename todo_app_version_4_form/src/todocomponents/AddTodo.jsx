@@ -14,7 +14,7 @@ function AddTodo({
         <input
           type="text"
           placeholder="Enter Todo here"
-          className="w-full rounded p-2 bg-gray-200 outline-none"
+          className="w-[100%] rounded p-2 bg-gray-200 outline-none"
           value={todo}
           onChange={textInputOnChange}
         />
@@ -22,7 +22,7 @@ function AddTodo({
       <section className="flex-2">
         <input
           type="date"
-          className="w-full  rounded p-2 bg-gray-200 outline-none"
+          className="w-[100%]  rounded p-2 bg-gray-200 outline-none"
           value={todoDate}
           onChange={dateInputOnChange}
         />
@@ -30,7 +30,7 @@ function AddTodo({
       <section className="flex-1">
         <button
           type="submit"
-          className="w-20 py-2  bg-green-600 text-white rounded active:bg-green-700 flex items-center justify-center"
+          className="w-[100%] py-2  bg-green-600 text-white rounded active:bg-green-700 flex items-center justify-center"
         >
           Add <IoMdAddCircle />
         </button>
