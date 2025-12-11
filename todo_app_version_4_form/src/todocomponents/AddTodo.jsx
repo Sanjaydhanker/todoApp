@@ -28,7 +28,10 @@ function AddTodo({
         />
       </section>
       <section className="flex-1">
-        <button className="w-20 py-2  bg-green-600 text-white rounded active:bg-green-700 flex items-center justify-center">
+        <button
+          type="submit"
+          className="w-20 py-2  bg-green-600 text-white rounded active:bg-green-700 flex items-center justify-center"
+        >
           Add <IoMdAddCircle />
         </button>
       </section>
