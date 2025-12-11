@@ -1,4 +1,5 @@
 import AddTodo from "./components/AddTodo";
+import AllTodoItems from "./components/AllTodoItems";
 import AppName from "./components/AppName";
 import TodoItems from "./components/TodoItems";
 
@@ -19,6 +20,11 @@ function App() {
       dueDate: "12/10/2025",
       deleteBtn: "Delete",
     },
+    {
+      name: "Job",
+      dueDate: "08/12/2025",
+      deleteBtn: "Delete",
+    },
   ];
   return (
     <>
@@ -27,14 +33,8 @@ function App() {
         <div className="w-xl h-auto p-8 bg-gray-400 rounded-xl shadow-xl shadow-indigo-900">
           <AppName />
           <AddTodo />
-          {todoItems.map((items) => (
-            <TodoItems
-              key={items.name}
-              todoName={items.name}
-              todoDate={items.dueDate}
-              deleteButton={items.deleteBtn}
-            />
-          ))}
+
+          <AllTodoItems todoItems={todoItems} />
         </div>
       </div>
     </>
