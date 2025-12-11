@@ -2,16 +2,22 @@ import { useState } from "react";
 import AddTodoItem from "./components/AddTodoItem";
 import AppContainer from "./components/AppContainer";
 import AppName from "./components/AppName";
-import Item from "./components/Item";
 import { useRef } from "react";
 import WelcomeMessage from "./components/WelcomeMessage";
+import { ContextTodoItems } from "./store/todo_items_store";
+import TodoItems from "./components/TodoItems";
 
 function App() {
   const todoItemName = useRef("");
   const dueTodoDate = useRef("");
-  const [todoItemsList, setTodoItemsList] = useState([]);
+  const [todoItemsList, setTodoItemsList] = useState([
+    {
+      todoName: "TodoName",
+      dueDate: "date",
+    },
+  ]);
 
-  const handleAddButton = (event) => {
+  const addNewTodo = (event) => {
     const newTodoName = todoItemName.current.value;
     const newDueDate = dueTodoDate.current.value;
     todoItemName.current.value = "";
@@ -36,33 +42,31 @@ function App() {
       },
     ]);
   };
-  const handleDeleteButton = (deleteTodoName) => {
+  const deleteItem = (deleteTodoName) => {
     const filterTodoList = todoItemsList.filter(
       (item) => item.todoName !== deleteTodoName
     );
     setTodoItemsList(filterTodoList);
   };
+
   return (
     <>
-      <AppContainer>
-        <AppName />
-        <AddTodoItem
-          todoItemName={todoItemName}
-          dueTodoDate={dueTodoDate}
-          handleAddButton={handleAddButton}
-        />
-        {todoItemsList.length === 0 && <WelcomeMessage />}
-        {todoItemsList.map((item) => {
-          return (
-            <Item
-              key={item.todoName}
-              todoName={item.todoName}
-              dueDate={item.dueDate}
-              handleDeleteButton={handleDeleteButton}
-            />
-          );
-        })}
-      </AppContainer>
+      <ContextTodoItems.Provider
+        value={{
+          todoItemsList: todoItemsList,
+          addNewTodo: addNewTodo,
+          deleteItem: deleteItem,
+          todoItemName: todoItemName,
+          dueTodoDate: dueTodoDate,
+        }}
+      >
+        <AppContainer>
+          <AppName />
+          <AddTodoItem />
+          <WelcomeMessage />
+          <TodoItems />
+        </AppContainer>
+      </ContextTodoItems.Provider>
     </>
   );
 }
