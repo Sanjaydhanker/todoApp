@@ -19,14 +19,20 @@ function App() {
     if (!newTodoName || !newDueDate) {
       return alert("Please enter todoname or date");
     }
-    const newTodoList = [
-      ...todoItemsList,
+    // const newTodoList = [
+    //   ...todoItemsList,
+    //   {
+    //     todoName: newTodoName,
+    //     dueDate: newDueDate,
+    //   },
+    // ];
+    setTodoItemsList((currentList) => [
+      ...currentList,
       {
         todoName: newTodoName,
         dueDate: newDueDate,
       },
-    ];
-    setTodoItemsList(newTodoList);
+    ]);
   };
   const handleDeleteButton = (deleteTodoName) => {
     const filterTodoList = todoItemsList.filter(
