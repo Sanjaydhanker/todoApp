@@ -39,7 +39,6 @@ function App() {
   const handleDeleteButton = (itemName) => {
     let newTodoItems = todoItems.filter((item) => item.name !== itemName);
     setTodoItems(newTodoItems);
-    console.log(itemName);
   };
   return (
     <>

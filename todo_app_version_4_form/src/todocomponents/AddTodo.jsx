@@ -10,7 +10,7 @@ function AddTodo({
 }) {
   return (
     <form className="w-full h-auto flex gap-4 my-2" onSubmit={addOnClickHandle}>
-      <section className="flex-3">
+      <section className="flex-2">
         <input
           type="text"
           placeholder="Enter Todo here"
