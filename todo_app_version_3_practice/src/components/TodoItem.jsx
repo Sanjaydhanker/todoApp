@@ -1,4 +1,4 @@
-import React from "react";
+import { MdOutlineDelete } from "react-icons/md";
 
 function TodoItem({ itemName, dueDate, handleOnDelete }) {
   return (
@@ -13,9 +13,10 @@ function TodoItem({ itemName, dueDate, handleOnDelete }) {
         <section className="flex-1">
           <button
             type="button"
-            className="w-full px-3 py-2 font-semibold bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer"
+            className="w-full px-2 py-2 font-semibold bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer flex items-center"
             onClick={() => handleOnDelete(itemName)}
           >
+            <MdOutlineDelete />
             Delete
           </button>
         </section>

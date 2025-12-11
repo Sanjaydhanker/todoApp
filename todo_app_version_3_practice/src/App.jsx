@@ -36,7 +36,6 @@ function App() {
   };
 
   const handleOnDelete = (todoItemName) => {
-    console.log(todoItemName);
     const newTodoItemsList = todoItems.filter(
       (item) => item.itemName !== todoItemName
     );
