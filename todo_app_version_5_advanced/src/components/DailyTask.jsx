@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
+import { StoreContext } from "../store/todo_app_store";
 
-function DailyTask({ taskList, handleOnDelete }) {
+function DailyTask() {
+  const { taskList, handleOnDelete } = useContext(StoreContext);
   return (
     <>
       <ul className="space-y-2">

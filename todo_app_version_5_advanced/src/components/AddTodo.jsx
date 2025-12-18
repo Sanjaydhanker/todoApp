@@ -1,4 +1,9 @@
-function AddTodo({ task, handleTextOnChange, handleAddClick }) {
+import { useContext } from "react";
+import { StoreContext } from "../store/todo_app_store";
+
+function AddTodo() {
+  const { task, handleTextOnChange, handleAddClick } = useContext(StoreContext);
+
   return (
     <>
       <div className="flex gap-2 ">
